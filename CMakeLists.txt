@@ -15,6 +15,9 @@ target_include_directories (c_unit PUBLIC test)
 
 include(CTest)
 
+add_executable(showsizes src/showsizes.c)
+#target_link_libraries(showsizes LINK_PUBLIC malloc)
+
 add_executable(test_basic_sanity test/test_basic_sanity.c)
 add_executable(test_replay       test/test_replay.c)
 target_link_libraries(test_basic_sanity LINK_PUBLIC malloc c_unit)
