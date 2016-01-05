@@ -1,5 +1,15 @@
+os: osx
 language: cpp
+sudo: false
+
 compiler: 
   - clang
 
-script: make test
+before_install:
+  - brew install valgrind
+  - valgrind --version
+
+script:
+  - cmake CMakeLists.txt
+  - make
+  - make test
