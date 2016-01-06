@@ -10,10 +10,10 @@ int main(int argc, char *argv[]) {
 	printf("BUSY_BIT == %x\n", BUSY_BIT);
 	printf("SIZEMASK == %x\n", SIZEMASK);
 
-	printf("| n | n+8| (n+8) & ~0x7 |\n");
-	printf("|---|----|--------------|\n");
+	printf("| n | n&0x7 | n+8| (n+8) & ~0x7 | (n&0x7)==0 ? n : (n+8) & ~0x7|\n");
+	printf("|---|-------|----|--------------|----------------------------|\n");
 	for (size_t n=0; n<=32; n++) {
-		printf("| %zd | %zd | %zd |\n", n, n+8, (n+8) & ~0x7);
+		printf("| %zd | %zd | %zd | %zd | %zd |\n", n, n&0x7, n+8, (n+8) & ~0x7, (n&0x7)==0 ? n : (n+8) & ~0x7);
 	}
 
 	printf("| n | size with header | aligned to word boundary |\n");
